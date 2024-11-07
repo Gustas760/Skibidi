@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Link Warning</title>
+</head>
+<body>
+
+    <a href="https://www.example.com" class="warning-link">Click here to go to the next page</a>
+
+    <script>
+        // JavaScript to handle the link confirmation
+        document.querySelectorAll('.warning-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();  // Prevent the default link action
+
+                // Show a confirmation message
+                const userConfirmed = confirm("Gå til den næste side");
+
+                // If the user confirms, open the link
+                if (userConfirmed) {
+                    window.location.href = link.href; // Redirect to the link
+                }
+                // If the user cancels, nothing happens, and they stay on the page
+            });
+        });
+    </script>
+
+</body>
+</html>
